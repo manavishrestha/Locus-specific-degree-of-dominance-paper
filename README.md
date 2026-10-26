@@ -221,17 +221,15 @@ All four genomic prediction models are evaluated under three cross-validation st
 
 ### 5.1 Leave-One-Year-Out (LOYO)
 
-In Leave-One-Year-Out cross-validation, one year is held out as the test set, while the remaining years are used for model training.
+
 
 ### 5.2 Rolling-Year Validation
 
-In Rolling-Year cross-validation, models are trained using data from previous years and evaluated on a subsequent year.
 
-The training dataset expands as additional years become available.
 
 ### 5.3 Leave-One-Environment-Out (LOEO)
 
-In Leave-One-Environment-Out cross-validation, one environment is held out for testing, while the remaining environments are used for model training.
+
 
 ### Model Implementation
 
@@ -256,71 +254,3 @@ Run the R script:
 Rscript train_test_2025Oct.R
 ```
 
-The script calculates the following information:
-
-- Training years
-- Test year
-- Training set size
-- Test set size
-- Number of unique hybrids in the test set
-- Number of overlapping hybrids between the training and test sets
-
-These summaries are used to evaluate the composition of the training and test sets under different year-based validation strategies.
-
----
-
-## 7. Summary of Output Files
-
-### 7.1 Preprocessed Data
-
-| Data Type | Output File |
-|-----------|-------------|
-| Trait data | `trait_clean_noOut.csv` |
-| Genotype data | `Final_filtered_Recoded_imputed_SNP.csv` |
-| Environmental covariates | `Env_clean.csv` |
-| Metadata | `metadata_clean_imputed.csv` |
-| Weather data | `weather_clean.csv` |
-
-### 7.2 BLUEs
-
-| Trait | Output File |
-|-------|-------------|
-| Grain yield | `agg_BLUE_yield.csv` |
-| Plant height | `agg_BLUE_plant_height.csv` |
-
-### 7.3 Final Merged Datasets
-
-| Trait | Output File |
-|-------|-------------|
-| Grain yield | `Final_merged_yield.csv` |
-| Plant height | `Final_merged_plant_height.csv` |
-
----
-
-## 8. Workflow Summary
-
-The overall workflow consists of the following steps:
-
-1. Download the raw datasets from the Genomes to Fields repository.
-2. Preprocess the trait, genotype, environmental covariate, metadata, and weather datasets.
-3. Calculate BLUEs separately for grain yield and plant height.
-4. Merge the processed datasets separately for both traits.
-5. Implement the four genomic prediction models.
-6. Evaluate model performance using LOYO, Rolling-Year, and LOEO cross-validation.
-7. Calculate training set sizes and overlapping hybrids for year-based cross-validation strategies.
-
----
-
-## 9. Citation
-
-If you use the dataset, please cite:
-
-Genomes To Fields (2025). *Genomes to Fields 2024 Maize Genotype by Environment Prediction Competition*. CyVerse Data Commons.
-
-https://doi.org/10.25739/78mn-4394
-
----
-
-## Author
-
-**Manavi Shrestha**
